@@ -88,8 +88,8 @@ int main(void)
   run_test(test_turn_on_and_turn_off_multiples_leds, "test_turn_on_and_turn_off_multiples_leds", 57);
   run_test(test_is_turned_on_led_from_on_to_off, "test_is_turned_on_led_from_on_to_off", 67);
   run_test(test_is_turned_off_led_no_status_, "test_is_turned_off_led_no_status_", 74);
-  run_test(test_turn_on_all_leds, "test_turn_on_all_leds", 81);
-  run_test(test_turn_off_all_leds, "test_turn_off_all_leds", 88);
+  run_test(test_turn_on_all_leds, "test_turn_on_all_leds", 80);
+  run_test(test_turn_off_all_leds, "test_turn_off_all_leds", 87);
 
   return UnityEnd();
 }

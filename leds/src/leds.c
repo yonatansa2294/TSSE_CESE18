@@ -18,18 +18,20 @@ static void UpdatePort()
     *virtual_port = port_state;
 }
 
-static uint16_t GetState(uint8_t _led)
+static bool GetState(uint8_t _led)
 {
-    uint16_t _port_state;
-    _port_state = port_state & IndexToMask(_led);
+    bool _current_led_state = false;
+    
+    if((port_state & IndexToMask(_led)))
+        _current_led_state = true;
 
+    return _current_led_state; 
 }
 
 void LedsInit(uint16_t* address)
 {
     virtual_port = address;
-    port_state = ALL_LEDS_OFF;
-    UpdatePort();
+    LedsTurnOffAll();
 }
 
 void LedsTurnOnSingle(uint8_t led)
@@ -44,12 +46,7 @@ void LedsTurnOffSingle(uint8_t led)
     UpdatePort();
 }
 
-uint16_t LedsIsTurnedOn(uint8_t led)
-{
-    return GetState(led);
-}
-
-uint16_t LedsIsTurnedOff(uint8_t led)
+bool LedsIsTurnedOn(uint8_t led)
 {
     return GetState(led);
 }

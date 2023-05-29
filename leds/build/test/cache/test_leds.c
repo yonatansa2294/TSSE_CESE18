@@ -122,11 +122,7 @@ void test_is_turned_on_led_from_on_to_off(void)
 
     LedsTurnOnSingle(4);
 
-    UnityAssertBits((UNITY_INT)((0x0008)), (UNITY_INT)((UNITY_UINT)(-1)), (UNITY_INT)((LedsIsTurnedOn(4))), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(70));
+    do {if ((LedsIsTurnedOn(4))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(70)));}} while(0);
 
 }
 
@@ -138,13 +134,7 @@ void test_is_turned_off_led_no_status_(void)
 
 {
 
-    LedsTurnOffSingle(9);
-
-    UnityAssertBits((UNITY_INT)((0x0200)), (UNITY_INT)((UNITY_UINT)(0)), (UNITY_INT)((LedsIsTurnedOff(9))), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(77));
+    do {if (!(LedsIsTurnedOn(9))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(76)));}} while(0);
 
 }
 
@@ -162,7 +152,7 @@ void test_turn_on_all_leds(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(84), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(83), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -182,6 +172,6 @@ void test_turn_off_all_leds(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(92), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(91), UNITY_DISPLAY_STYLE_HEX16);
 
 }

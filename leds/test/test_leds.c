@@ -67,14 +67,13 @@ void test_turn_on_and_turn_off_multiples_leds(void)
 void test_is_turned_on_led_from_on_to_off(void)
 {
     LedsTurnOnSingle(4);
-    TEST_ASSERT_BITS_HIGH(0x0008,LedsIsTurnedOn(4));
+    TEST_ASSERT_TRUE(LedsIsTurnedOn(4));
 }
 
 /*Prueba 6*/
 void test_is_turned_off_led_no_status_(void)
 {
-    LedsTurnOffSingle(9);
-    TEST_ASSERT_BITS_LOW(0x0200,LedsIsTurnedOff(9));
+    TEST_ASSERT_FALSE(LedsIsTurnedOn(9));
 }
 
 /*Prueba 7*/
