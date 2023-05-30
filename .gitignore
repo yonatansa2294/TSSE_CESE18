@@ -54,3 +54,4 @@ dkms.conf
 
 #folders
 leds/build
+unity_test/build
